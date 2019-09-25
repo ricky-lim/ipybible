@@ -1,6 +1,6 @@
 # ipybible
 
-Interactive Python to explore bible. Please Check it out @https://ipybible.herokuapp.com/
+Interactive Python to explore bible. Please Check it out @https://ipybibel.herokuapp.com/
 
 Bible source API: https://getbible.net/api
 

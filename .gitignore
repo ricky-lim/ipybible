@@ -1,0 +1,17 @@
+.envrc
+.idea
+ipybible-env
+notebooks/.ipynb_checkpoints
+notebooks/.cache_magic
+notebooks/voila-vuetify.ipynb
+.eggs/
+ipybible.egg-info
+ipybible/__pycache__/
+tmp/
+tests/*/__pycache__
+__pycache__/
+*.pyc
+.mypy_cache
+build
+notebooks/*_playground.ipynb
+ipybible/data

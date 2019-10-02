@@ -9,7 +9,7 @@ from setuptools.command.install import install
 
 requirements = [
     "requests==2.22.0",
-    "spacy==2.1.8"
+    "spacy==2.1.8",
     "scikit-learn==0.21.3",
     "wordcloud==1.5.0",
     "matplotlib==3.1.1",

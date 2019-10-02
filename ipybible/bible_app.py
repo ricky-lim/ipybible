@@ -150,8 +150,8 @@ class BibleApp:
         self.cloud_loading = v.ProgressLinear(indeterminate=True)
         chapter_text = (
             self.bible.book(self.book_selected)
-                .chapter(self.chapter_selected)
-                .clean_text()
+            .chapter(self.chapter_selected)
+            .clean_text()
         )
         verse_list = self.display_verse_list()
         self.main_content = v.Layout(
@@ -187,8 +187,8 @@ class BibleApp:
         )
         verse_list = VerseList(
             verses=self.bible.book(self.book_selected)
-                .chapter(self.chapter_selected)
-                .verses,
+            .chapter(self.chapter_selected)
+            .verses,
             title=f"{self.book_selected.title()} {self.chapter_selected}: 1-{num_verse}",
         )
         return verse_list
@@ -225,8 +225,8 @@ class BibleApp:
         """
         chapter_text = (
             self.bible.book(self.book_selected)
-                .chapter(self.chapter_selected)
-                .clean_text()
+            .chapter(self.chapter_selected)
+            .clean_text()
         )
         chapter_cloud = self.draw_chapter_cloud(chapter_text)
         verse_list = self.display_verse_list()
@@ -277,7 +277,7 @@ class BibleApp:
             ]
 
     def create_chapter_selector(
-            self, num_chapter, idx_chapter_selected: int
+        self, num_chapter, idx_chapter_selected: int
     ) -> v.BtnToggle:
         """
         Create toggle's button for chapters
@@ -374,7 +374,7 @@ class BibleApp:
         self.bible_loading.active = False
 
     def create_book_to_similarity_barplot(
-            self, book_to_similarity: Dict[BookName, SimRatio]
+        self, book_to_similarity: Dict[BookName, SimRatio]
     ) -> bq.Figure:
         x_ord = bq.OrdinalScale(reverse=True)
         y_sc = bq.LinearScale()
@@ -420,7 +420,7 @@ class BibleApp:
         return fig
 
     def create_chapter_market_map(
-            self, chapter_to_similarity: Dict[int, float]
+        self, chapter_to_similarity: Dict[int, float]
     ) -> MarketMap:
 
         col = bq.ColorScale()
@@ -547,8 +547,8 @@ class BibleApp:
             self.chapter_selected = (
                 self.chapter_selected
                 if (
-                        self.chapter_selected
-                        and self.chapter_selected <= self.total_chapter
+                    self.chapter_selected
+                    and self.chapter_selected <= self.total_chapter
                 )
                 else 1
             )

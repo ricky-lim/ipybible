@@ -16,6 +16,12 @@ from ipybible.misc import sort_dict, normalize
 
 BIBLE_INDEX = Index(str(BIBLE_DATA_DIR))
 SEARCH_CACHE = Cache(str(SEARCH_DATA_DIR))
+# Path(BIBLE_DATA_DIR).chmod(0o755)
+# Path(BIBLE_DATA_DIR / "cache.db").chmod(0o755)
+# Path(SEARCH_DATA_DIR).chmod(0o755)
+# Path(SEARCH_DATA_DIR / "cache.db").chmod(0o755)
+
+
 BookName = str
 ChapterNum = int
 SimRatio = float
@@ -154,8 +160,6 @@ class Book:
     @SEARCH_CACHE.memoize()
     def chapter_to_similarity(self, text: str) -> Dict[int, float]:
         """Sorted chapter to similarity from highest to lowest score"""
-        compute_text = partial(Book.compute_chapter_to_similarity, text=text)
-
         chapter_to_similarity = {
             chapter.number: chapter.compute_sim(text) for chapter in self.chapters
         }
@@ -236,19 +240,26 @@ class Bible:
                 verse = Verse(int(verse_num), verse_text, self.language)
                 self.book(book).chapter(int(chapter_num)).add_verse(verse)
 
-    @staticmethod
-    def clean_textbook(book: Book):
-        book.clean_text()
-        for chapter in book.chapters:
-            chapter.clean_text()
-            for verse in chapter.verses:
-                verse.clean_text()
+    # @staticmethod
+    # def clean_textbook(book: Book):
+    #     book.clean_text()
+    #     for chapter in book.chapters:
+    #         chapter.clean_text()
+    #         for verse in chapter.verses:
+    #             verse.clean_text()
 
     def clean_text(self):
-        pool = Pool()
-        pool.map(Bible.clean_textbook, self._books.values())
-        pool.close()
-        pool.join()
+        for book in self.books:
+            book.clean_text()
+            for chapter in book.chapters:
+                chapter.clean_text()
+                for verse in chapter.verses:
+                    verse.clean_text()
+
+        # pool = Pool()
+        # pool.map(Bible.clean_textbook, self.books)
+        # pool.close()
+        # pool.join()
 
     @staticmethod
     def compute_book_to_similarity(book: Book, text: str) -> Dict[BookName, SimRatio]:

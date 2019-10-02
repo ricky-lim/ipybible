@@ -11,8 +11,8 @@ git clone https://github.com/ricky-lim/ipybible.git
 cd ipybible
 # create virtualenv
 python -m venv ipybible-env
+source ipybible-env/bin/activate
 pip install -r requirements.txt
-pip install .
 ```
 
 ## Bible API

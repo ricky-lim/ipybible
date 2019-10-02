@@ -14,4 +14,5 @@ __pycache__/
 .mypy_cache
 build
 notebooks/*_playground.ipynb
-ipybible/data
+ipybible/data/bible
+ipybible/data/search

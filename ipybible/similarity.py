@@ -22,7 +22,7 @@ class SpacyLangModel:
 
 
 def normalize_text(
-        text: str, spacy_model: SpacyLangModel, index_name: Index = BIBLE_INDEX
+    text: str, spacy_model: SpacyLangModel, index_name: Index = BIBLE_INDEX
 ):
     index_key = sha256(text.encode("utf-8")).hexdigest()
     if index_key in index_name:

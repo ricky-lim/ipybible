@@ -8,12 +8,12 @@ from setuptools.command.develop import develop
 from setuptools.command.install import install
 
 requirements = [
-    "requests==2.22.0",
-    "spacy==2.1.8",
-    "scikit-learn==0.21.3",
-    "wordcloud==1.5.0",
-    "matplotlib==3.1.1",
-    "diskcache==4.0.0",
+    "requests",
+    "spacy",
+    "scikit-learn",
+    "wordcloud",
+    "matplotlib",
+    "diskcache",
 ]
 
 setup_requirements = ["pytest-runner"]

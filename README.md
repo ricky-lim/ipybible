@@ -6,6 +6,14 @@ Bible source API: https://getbible.net/api
 
 ## Installation
 
+### Conda
+
+```bash
+conda env create -f env.yaml
+conda activate ipybible-env
+bash jupyterlab_setup.sh ipybible-env
+```
+
 ```bash
 git clone https://github.com/ricky-lim/ipybible.git
 cd ipybible

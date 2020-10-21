@@ -7,16 +7,11 @@ CONDA_PREFIX="${CONDA_PREFIX:-/opt/conda}"
 
 for env in "$@"
 do
-  # Activate jupyter notebook extesion
-  conda run -n "$env" bash -c "jupyter nbextension enable --py --sys-prefix \
-    ipyfetch"
-
   # Activate jupyter lab extension
   conda run -n "$env" bash -c "jupyter labextension install --no-build \
     @jupyter-widgets/jupyterlab-manager \
     @jupyter-voila/jupyterlab-preview \
     bqplot \
-    ipyfetch \
     jupyter-vuetify"
 
   # Disable vim
